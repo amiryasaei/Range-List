@@ -1,3 +1,3 @@
-export const hello = () => {
-  return "Hello Jerry!";
-};
+class RangeList {}
+
+export { RangeList };
