@@ -1,6 +1,6 @@
 # Range-list
 
-This is the question asked by Jerry for my take home coding assessment.
+This is the question asked by Jerry for my take home coding assessment. I will try to implement a solution for this problem in a test driven development practice.
 
 # Problem definition
 
