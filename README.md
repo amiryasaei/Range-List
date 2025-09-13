@@ -25,3 +25,8 @@ Call: add(10, 40, -1) => [[10,-1],[20,0],[30,-1],[40,0]]
 # Note:
 
 In the problem description above, I do not see any example for the set method; therefore, I assume that this function will only overwrite the intensity for the specified segment.
+
+# How to run the code
+
+I implemented some test cases, you can monitor the performance of the code by running the test files using:
+npm run test
