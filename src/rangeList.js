@@ -6,7 +6,7 @@ class RangeList {
      *  10 => 1,
      *  30 => 0
      * }
-     * This way we can traverse through our data in O(1)
+     * This way we can get and set our data in O(1)
      */
     this.segments = new Map();
   }
@@ -68,6 +68,43 @@ class RangeList {
     }
 
     return result;
+  }
+  /**
+   * setting new intensity for a segment
+   * @param {number} from - The start of the segment
+   * @param {number} to - The end of the segment
+   * @param {number} amount - The amount to set the intensity for the segment
+   */
+  set(from, to, amount) {
+    // validate inputs to reject invalid ranges and values
+    if (
+      !Number.isFinite(from) ||
+      !Number.isFinite(to) ||
+      !Number.isInteger(amount) ||
+      from >= to
+    ) {
+      throw new Error("Invalid range or amount");
+    }
+
+    // sorting the segment object by converting to array to have this format : [[_,_],[_,_]]
+    const segments = this.toArray();
+    let currentIntensity = 0;
+
+    // find intensity value before the 'from' node
+    for (let [pos, intensity] of segments) {
+      if (pos >= from) break;
+      currentIntensity = intensity;
+    }
+
+    // clear existing intensities by adding the negative of current intensity
+    if (currentIntensity !== 0) {
+      this.add(from, to, -currentIntensity);
+    }
+
+    // set the new intensity to 'amount'
+    if (amount !== 0) {
+      this.add(from, to, amount);
+    }
   }
 }
 
